@@ -34,13 +34,17 @@
   <stylesheets>
     <URL value="@../Login.css" />
   </stylesheets>
-  <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+  <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+    <children>
+      <Button onAction="#logout" mnemonicParsing="false" text="Logout" />
+    </children>
+  </HBox>
   <Button mnemonicParsing="false" text="Add Budget Items" GridPane.columnIndex="1" GridPane.rowIndex="3" />
   <Button mnemonicParsing="false" text="Enter a Transaction" GridPane.columnIndex="1" GridPane.rowIndex="6" />
   <Button mnemonicParsing="false" text="Indicate a Paid Reimbursement" GridPane.columnIndex="1" GridPane.rowIndex="7" />
   <Button mnemonicParsing="false" text="View Budget Summaries" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-  <Button text="View SGA Allocations" onAction="#viewSga" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+  <Button onAction="#viewSga" text="View SGA Allocations" GridPane.columnIndex="1" GridPane.rowIndex="5" />
   <Button mnemonicParsing="false" text="Report Bug to Sysadmin" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-  <Text text="Logged in as:" fx:id="loginInfo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+  <Text fx:id="loginInfo" text="Logged in as:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
   <Label prefWidth="450.0" text="Welcome to the YJFC Budget Tool, made by Susanna Dong. This tool is designed to make keeping track of monetary transactions easier! See the menu for more options." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 </GridPane>
