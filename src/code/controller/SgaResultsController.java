@@ -4,27 +4,37 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import src.code.model.DatabaseInfo;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class SgaResultsController extends AbstractController {
     
-    public final static String DB_URL = "db\\YJFCBudgetTool.db";
-    
     @FXML
     private TableView<String> table;
+
+    @Override
+    protected void submit(ActionEvent event) {
+        // not needed
+    }
+
+    @Override
+    protected void goBack(ActionEvent event) {
+        transition(event, "sgaForm");
+    }
     
-    @FXML
-    public void populateResults(int year, boolean wantPrev) {
+    @Override
+    protected void populate(ActionEvent event) {
+        //populateResults(yearsList.getValue(), wantPrev.isSelected());
+    }
+    
+    private void populateResults(int year, boolean wantPrev) {
         Connection connect = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            connect = DriverManager.getConnection("jdbc:sqlite:"+DB_URL);
+            connect = DriverManager.getConnection(DatabaseInfo.DB_URL);
             
             Statement stmt = connect.createStatement();
             String strSelect = null;
