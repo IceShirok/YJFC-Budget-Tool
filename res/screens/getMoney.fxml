@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.net.URL?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="365.0" styleClass="root" vgap="10.0"
+      xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+      fx:controller="src.code.controller.ReimbursementController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <padding>
+    <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+  </padding>
+  <HBox alignment="BOTTOM_RIGHT" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+  <Label maxWidth="450.0" text="Select the row of a reimbursement that is being paid for." GridPane.columnIndex="0" GridPane.rowIndex="0" />
+  <rowConstraints>
+    <RowConstraints maxHeight="16.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="16.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-1.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="10.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+  <stylesheets>
+    <URL value="@../Login.css" />
+  </stylesheets>
+  <TableView fx:id="reimbTable" prefHeight="149.0" prefWidth="511.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+    <columns>
+      <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="115.0" text="Category" fx:id="colCat" />
+      <TableColumn prefWidth="75.0" text="Name" fx:id="colName" />
+      <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="85.0" text="Amount" fx:id="colAmt" />
+      <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" text="DateReq" fx:id="colReq" />
+    </columns>
+  </TableView>
+  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
+    <children>
+      <Button mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Button mnemonicParsing="false" onAction="#submit" text="Submit" />
+    </children>
+  </HBox>
+  <Text text="" fx:id="message" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+</GridPane>

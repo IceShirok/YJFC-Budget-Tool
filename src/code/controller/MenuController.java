@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import src.code.model.DatabaseInfo;
 import src.code.model.LoginStore;
 
 public class MenuController extends AbstractController {
@@ -12,7 +13,7 @@ public class MenuController extends AbstractController {
     private Text loginInfo;
 
     protected void setLoginDisplay(String username) {
-        loginInfo.setText("Logged in as " + username);
+        loginInfo.setText("Logged in as: " + username + " | Today's date is: " + DatabaseInfo.getTimeStamp());
     }
 
     @Override
@@ -29,7 +30,7 @@ public class MenuController extends AbstractController {
 
     @Override
     protected void populate(ActionEvent event) {
-        setLoginDisplay("Logged in as "+LoginStore.getUsername());
+        setLoginDisplay(LoginStore.getUsername());
     }
 
 }

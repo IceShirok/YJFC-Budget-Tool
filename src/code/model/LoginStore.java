@@ -10,7 +10,6 @@ public class LoginStore {
     private LoginStore(String username, String userType) {
         this.username = username;
         this.userType = userType;
-        System.out.println(username);
     }
 
     public static void logIn(String username, String userType) {

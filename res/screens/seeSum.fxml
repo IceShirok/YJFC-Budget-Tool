@@ -11,7 +11,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" hgap="10.0" styleClass="root" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="src.code.controller.MenuController">
+<GridPane alignment="CENTER" hgap="10.0" styleClass="root" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="src.code.controller.SummaryController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -38,10 +38,10 @@
       <Button mnemonicParsing="false" onAction="#goBack" text="Back" />
     </children>
   </HBox>
-  <Button fx:id="addItem" onAction="#submit" text="Budget Summary by Year" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-  <Button fx:id="transaction" onAction="#submit" text="Total Money in Bank Comparison" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-  <Button fx:id="seeSum" onAction="#submit" text="Budget Summary by Category" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-  <Button fx:id="sgaView" onAction="#submit" text="Budget Summary of the Week" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+  <Button fx:id="yearSum" onAction="#submit" text="Budget Summary by Year" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+  <Button fx:id="bankSum" onAction="#submit" text="Total Money in Bank Comparison" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+  <Button fx:id="catSum" onAction="#submit" text="Budget Summary by Category" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+  <Button fx:id="weekSum" onAction="#submit" text="Budget Summary of the Week" GridPane.columnIndex="1" GridPane.rowIndex="5" />
   <Text fx:id="loginInfo" text="Logged in as:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
   <Label prefWidth="450.0" text="See budget summaries" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 </GridPane>

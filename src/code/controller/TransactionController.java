@@ -45,6 +45,8 @@ public class TransactionController extends AbstractController {
                 row.add(rset.getString("Category"));
             }
             category.setItems(row);
+            
+            connect.close();
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -60,13 +62,14 @@ public class TransactionController extends AbstractController {
             Statement stmt = connect.createStatement();
             
             String foo = "SELECT DISTINCT Name FROM BudgetItem WHERE Category=\""+category.getValue()+"\";";
-            System.out.println(foo);
             ResultSet rset = stmt.executeQuery(foo);
             ObservableList<String> row = FXCollections.observableArrayList();
             while(rset.next()) {
                 row.add(rset.getString("Name"));
             }
             nameCat.setItems(row);
+            
+            connect.close();
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);

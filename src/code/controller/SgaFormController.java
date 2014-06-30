@@ -16,6 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 public class SgaFormController extends AbstractController {
     
@@ -41,6 +42,9 @@ public class SgaFormController extends AbstractController {
     @FXML
     private TableColumn<SgaPOJO, Double> colCyApp;
     
+    @FXML
+    private Text message;
+    
     @Override
     protected void submit(ActionEvent event) {
         populateResults(yearsList.getValue(), wantPrev.isSelected());
@@ -65,9 +69,10 @@ public class SgaFormController extends AbstractController {
             ObservableList<Integer> row = FXCollections.observableArrayList();
             while(rset.next()) {
                 row.add(rset.getInt("Year"));
-                System.out.println(rset.getInt("Year"));
             }
             yearsList.setItems(row);
+            
+            connect.close();
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
@@ -144,8 +149,11 @@ public class SgaFormController extends AbstractController {
                 csvData.add(new SgaPOJO(name, category, prevYearReq, prevYearApp, currYearReq, currYearApp));
             }
             sgaTable.setItems(csvData);
-        } catch ( Exception e ) {
+            
+            connect.close();
+        } catch (Exception e) {
             System.out.println(e);
+            message.setText(e.getMessage() + " Please contact the database admin for help.");
         }
     }
 

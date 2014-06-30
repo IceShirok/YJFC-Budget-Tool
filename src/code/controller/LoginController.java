@@ -42,7 +42,7 @@ public class LoginController extends AbstractController {
 
     @Override
     protected void populate(ActionEvent event) {
-        // not needed
+        // not needed - it's the login screen
     }
 
     private static String validateLogin(String username, String password) {
@@ -50,13 +50,15 @@ public class LoginController extends AbstractController {
         try {
             Class.forName("org.sqlite.JDBC");
             connect = DriverManager.getConnection(DatabaseInfo.DB_URL);
-
             Statement stmt = connect.createStatement();
+            
             String strSelect = "SELECT UserType FROM Users WHERE GTID='" + username + "' AND Password='" + password + "';";
             ResultSet rset = stmt.executeQuery(strSelect);
             if (rset.next()) {
                 return rset.getString("UserType");
             }
+            
+            connect.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);
